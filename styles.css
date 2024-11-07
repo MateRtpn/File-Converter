@@ -1,4 +1,3 @@
-
 body {
     font-family: 'IBM Plex Sans', sans-serif;
     background: linear-gradient(135deg, #e2e8f0, #f3f4f6);
@@ -13,9 +12,9 @@ body {
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    padding: 40px 30px;
+    padding: 40px;
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
     animation: fadeIn 1s ease-in-out;
 }
@@ -34,23 +33,24 @@ body {
 h1 {
     color: #333;
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
-
 
 .upload-section {
     margin-bottom: 20px;
 }
 
+
+
 input[type="file"] {
-    width: 90%;
-    padding: 15px;
-    border-radius: 8px;
+    width: 95%;
+    padding: 14px;
+    border-radius: 10px;
     border: 2px dashed #5c6ac4;
     background-color: #f9fafb;
     color: #5c6ac4;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     transition: border-color 0.3s, background-color 0.3s;
 }
 
@@ -60,19 +60,44 @@ input[type="file"]:hover {
 }
 
 
+
+.preview-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.preview-image {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.preview-image:hover {
+    transform: scale(1.05);
+}
+
 .action-section {
     margin-bottom: 20px;
 }
 
+
+
 select, button {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 8px 0;
     border-radius: 8px;
     border: 2px solid #5c6ac4;
     background-color: #f9fafb;
     color: #333;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
 }
@@ -86,17 +111,15 @@ button {
     background-color: #5c6ac4;
     color: #fff;
     border: none;
-    cursor: pointer;
 }
 
 button:hover {
     background-color: #4a58a8;
 }
 
-
 .output-section {
-    margin-top: 20px;
-    font-size: 16px;
+    margin-top: 15px;
+    font-size: 15px;
     color: #333;
 }
 
@@ -111,28 +134,77 @@ a:hover {
 }
 
 
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  
+
+
+
 @media (max-width: 768px) {
     .container {
-        padding: 20px 15px;
-        max-width: 300px;
+        padding: 25px;
+        max-width: 80%;
     }
-    
+
     h1 {
         font-size: 24px;
-        margin-bottom: 20px;
     }
-    
+
     input[type="file"] {
-        width: 90%;
-        font-size: 14px;
+        font-size: 13px;
+        max-width: 90%;
     }
-    
+
     select, button {
         padding: 10px;
-        font-size: 14px;
+        font-size: 13px;
     }
-    
+
+    .preview-image {
+        width: 100px;
+        height: 100px;
+    }
+
     .output-section {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
