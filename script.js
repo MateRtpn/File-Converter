@@ -4,33 +4,29 @@ function openModal(imgSrc) {
   const modalImage = document.getElementById('modalImage');
   const caption = document.getElementById('caption');
 
-  modal.style.display = 'flex';  
-  modalImage.src = imgSrc;  
-  caption.textContent = imgSrc.split('/').pop();  
+  modal.style.display = 'flex';
+  modalImage.src = imgSrc;
+
+
+  const fileName = imgSrc.split('/').pop().split('.')[0];
+  caption.textContent = fileName; 
 }
-
-
 
 
 
 document.getElementById('closeModal').addEventListener('click', () => {
   const modal = document.getElementById('modal');
-  modal.style.display = 'none'; 
+  modal.style.display = 'none';  
 });
 
 document.getElementById('fileInput').addEventListener('change', async () => {
   const previewSection = document.getElementById('previewSection');
-  previewSection.innerHTML = ''; 
+  previewSection.innerHTML = '';
 
   const files = Array.from(document.getElementById('fileInput').files);
 
 
-
   files.sort((a, b) => a.name.localeCompare(b.name));
-
-
-
-
 
   for (const file of files) {
     if (!file.type.startsWith('image/')) {
@@ -41,6 +37,9 @@ document.getElementById('fileInput').addEventListener('change', async () => {
     img.className = 'preview-image';
 
 
+    const fileNameWithoutExtension = file.name.split('.')[0];
+
+
     img.addEventListener('click', function() {
       openModal(img.src);
     });
@@ -48,9 +47,6 @@ document.getElementById('fileInput').addEventListener('change', async () => {
     previewSection.appendChild(img);
   }
 });
-
-
-
 
 
 
@@ -79,11 +75,6 @@ document.getElementById('convertButton').addEventListener('click', () => {
 
 
   
-
-
-
-
-
 
   if (files.length === 1) {
     convertAndDownload(files[0], format);
@@ -118,7 +109,7 @@ document.getElementById('convertButton').addEventListener('click', () => {
           }
 
           const blob = new Blob([new Uint8Array(array)], { type: `image/${format}` });
-          zip.file(`${file.name}.${format}`, blob);
+          zip.file(`converted-${file.name.split('.')[0]}.${format}`, blob);
 
           processedFiles++;
           if (processedFiles === files.length) {
@@ -135,9 +126,6 @@ document.getElementById('convertButton').addEventListener('click', () => {
     });
   }
 });
-
-
-
 
 
 
@@ -166,7 +154,7 @@ function convertAndDownload(file, format) {
       const blob = new Blob([new Uint8Array(array)], { type: `image/${format}` });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = `${file.name.split('.')[0]}.${format}`;
+      link.download = `${file.name.split('.')[0]}.${format}`; 
       link.click();
     };
   };
