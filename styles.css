@@ -1,0 +1,138 @@
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: linear-gradient(135deg, #e2e8f0, #f3f4f6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    width: 90%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px dashed #5c6ac4;
+    background-color: #f9fafb;
+    color: #5c6ac4;
+    cursor: pointer;
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="file"]:hover {
+    border-color: #4a58a8;
+    background-color: #f1f4fb;
+}
+
+
+.action-section {
+    margin-bottom: 20px;
+}
+
+select, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 2px solid #5c6ac4;
+    background-color: #f9fafb;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+select:hover, button:hover {
+    background-color: #f1f4fb;
+    border-color: #4a58a8;
+}
+
+button {
+    background-color: #5c6ac4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4a58a8;
+}
+
+
+.output-section {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+a {
+    color: #5c6ac4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #4a58a8;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+        max-width: 300px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    input[type="file"] {
+        width: 90%;
+        font-size: 14px;
+    }
+    
+    select, button {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .output-section {
+        font-size: 14px;
+    }
+}
