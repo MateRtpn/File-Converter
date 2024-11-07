@@ -11,6 +11,7 @@ document.getElementById('convertButton').addEventListener('click', () => {
   reader.onload = function(e) {
     const img = new Image();
     img.src = e.target.result;
+    
     img.onload = function() {
       if (format === 'pdf') {
         const { jsPDF } = window.jspdf;
@@ -19,6 +20,10 @@ document.getElementById('convertButton').addEventListener('click', () => {
         pdf.save('converted.pdf');
       } else {
         const canvas = document.getElementById('canvas');
+        if (!canvas) {
+          console.error("Canvas element not found!");
+          return;
+        }
         const ctx = canvas.getContext('2d');
         canvas.width = img.width;
         canvas.height = img.height;
