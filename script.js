@@ -109,7 +109,7 @@ document.getElementById('convertButton').addEventListener('click', () => {
           }
 
           const blob = new Blob([new Uint8Array(array)], { type: `image/${format}` });
-          zip.file(`converted-${file.name.split('.')[0]}.${format}`, blob);
+          zip.file(`${file.name.split('.')[0]}.${format}`, blob);
 
           processedFiles++;
           if (processedFiles === files.length) {
